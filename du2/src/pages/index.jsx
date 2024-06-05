@@ -1,20 +1,17 @@
 import { render } from '@czechitas/render';
 import '../global.css';
 import './index.css';
+import { Header, HeaderProps } from './components/header/header';
+import { Intro, IntroProps} from './components/intro/intro';
+import { Pose } from './components/pose/pose';
+import image from "./img/yoga-pose.jpg"
 
 console.log('funguju!');
 
 document.querySelector('#root').innerHTML = render(
-  <div className="container">
-    <header>
-      <div className="logo"></div>
-      <h1>Webová aplikace</h1>
-    </header>
-    <main>
-      <p>Startovací šablona pro webovou aplikaci v JavaScriptu s JSX. Vytvořeno pomocí <a href="https://www.npmjs.com/package/create-kodim-app">create-kodim-app</a>.</p>
-    </main>
-    <footer>
-      <p>Czechitas, Digitální akademie: Web</p>
-    </footer>
+  <div id="app" className="app container">
+    <Header title={HeaderProps.title} />
+    <Intro heading={IntroProps.heading} text={IntroProps.text} />
+    <Pose src={image} />
   </div>
 );
